@@ -7,7 +7,7 @@ In this repository I attempt to replicate the colour normalisation method descri
 
 #### STEP ONE: Correct Luminosity
 - Create a reference image for **each** Whole Slide Image (WSI), this reference is 100 tiles randomly sampled from a WSI, concatenated to form a single image. 
-- Transform reference image from LAB to RGB colour space.
+- Transform reference image from RGB to LAB colour space.
 - Determine L<sub>ref95</sub>: the 95th percentile of luminosity from the distribution of pixels in the global reference. 
 - Rescale each WSI according to L<sub>ref95</sub>:
 
