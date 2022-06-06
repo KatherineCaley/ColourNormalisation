@@ -36,11 +36,15 @@ def get_Lref_mu_sigma(im_scr, pctl: int):
 
 def correct_lum(im_src, Lref95, target_mu, target_sigma):
     """
-
     im_src:
-        path to image
+        path to tile
     Lref95:
         the 95th percentile of luminosity from the distribution of pixels in the slide-level reference
+    target_mu:
+        average luminosity in WSI level reference
+    target_sigma:
+        standart deviation of luminosity in WSI level reference
+
 
     returns
         tile in RGB format rescaled based on global luminosity reference
@@ -56,9 +60,7 @@ def correct_lum(im_src, Lref95, target_mu, target_sigma):
     im_lab = rgb_to_lab(im_rgb)
 
     # calculate src_mu and src_sigma
-
     src_mu = [im_lab[..., i].mean() for i in range(3)]
-    print(src_mu)
     src_sigma = [im_lab[..., i].std() for i in range(3)]
 
     # scale to unit variance

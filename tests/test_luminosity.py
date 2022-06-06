@@ -17,7 +17,7 @@ def test_correct_lum():
     )
 
     im_normalised = correct_lum(
-        "/Users/katherine/repos/ColourNormalisation/tests/data/images_raw/00027/tile_00002_00089_00303_016.png",
+        "/Users/katherine/repos/ColourNormalisation/tests/data/images_raw/00027/tile_00005_00102_00637_016.png",
         lref,
         mu,
         sigma,
