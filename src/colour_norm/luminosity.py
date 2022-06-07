@@ -1,5 +1,4 @@
 import cv2
-
 import numpy as np
 from skimage.io import imread
 from skimage.color import rgb2lab, lab2rgb
@@ -45,18 +44,11 @@ def correct_lum(im_src, Lref95, target_mu, target_sigma):
     target_sigma:
         standart deviation of luminosity in WSI level reference
 
-
     returns
         tile in RGB format rescaled based on global luminosity reference
     """
 
     im_rgb = cv2.imread(im_src, 1)
-
-    cv2.imwrite(
-        "/Users/katherine/repos/ColourNormalisation/tests/data/images_raw/00027/im_rgb.jpg",
-        im_rgb,
-    )
-
     im_lab = rgb_to_lab(im_rgb)
 
     # calculate src_mu and src_sigma
@@ -76,12 +68,6 @@ def correct_lum(im_src, Lref95, target_mu, target_sigma):
 
     im_normalized[im_normalized > 255] = 255
     im_normalized[im_normalized < 0] = 0
-
     im_normalized = im_normalized.astype(np.uint8)
-
-    cv2.imwrite(
-        "/Users/katherine/repos/ColourNormalisation/tests/data/images_raw/00027/im_normalised.jpg",
-        im_normalized,
-    )
 
     return im_normalized

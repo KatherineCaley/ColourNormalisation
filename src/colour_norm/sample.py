@@ -64,7 +64,9 @@ def sample_tiles_dataset(data_src: str, n: int, seed=None):
 
     chosen_tiles = [(random.choice(os.listdir(data_src + x)), x) for x in chosen_wsis]
 
-    loaded_tiles = [cv2.imread(data_src + "/" + x[1] + "/" + x[0]) for x in chosen_tiles]
+    loaded_tiles = [
+        cv2.imread(data_src + "/" + x[1] + "/" + x[0]) for x in chosen_tiles
+    ]
 
     x, y = get_dimensions(n)
 
@@ -76,4 +78,3 @@ def sample_tiles_dataset(data_src: str, n: int, seed=None):
     im_concat = concat_vh(list_2D)
 
     return im_concat
-
