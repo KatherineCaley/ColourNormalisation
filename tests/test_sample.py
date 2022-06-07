@@ -9,11 +9,11 @@ from colour_norm.sample import sample_tiles_wsi, sample_tiles_dataset
 def test_sample_tiles_WSI():
 
     im_concat = sample_tiles_wsi(
-        "/Users/katherine/repos/ColourNormalisation/tests/data/images_raw/00027", 12
+        "/Users/katherine/repos/ColourNormalisation/tests/data/images_raw/00027", 36
     )
 
     cv2.imwrite(
-        "/Users/katherine/repos/ColourNormalisation/tests/data/test_outputs/00027/reference.jpg",
+        "/Users/katherine/repos/ColourNormalisation/tests/test_outputs/test_sample/local_reference.jpg",
         im_concat,
     )
 def test_sample_tiles_dataset():
@@ -23,7 +23,7 @@ def test_sample_tiles_dataset():
     )
 
     cv2.imwrite(
-        "/Users/katherine/repos/ColourNormalisation/tests/data/test_outputs/reference.jpg",
+        "/Users/katherine/repos/ColourNormalisation/tests/test_outputs/test_sample/global_reference.jpg",
         im_concat,
     )
 
